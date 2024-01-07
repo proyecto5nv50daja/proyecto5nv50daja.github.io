@@ -8,23 +8,7 @@ import {
 const firestore = getFirestore();
 const daoUsuario = firestore.
   collection("Usuario");
-export async function iniciaSesión() {
-  /** Tipo de autenticación de
-   * usuarios. En este caso es con
-   * Facebook.
-   * @type {import("../lib/tiposFire.js").FacebookAuthProvider} */
-  const provider =
-    // @ts-ignore
-    new firebase.auth.
-      FacebookAuthProvider();
-  /* Configura el proveedor de
-   * Facebook para que permita
-   * seleccionar de una lista. */
-  provider.setCustomParameters(
-    { prompt: "select_account" });
-  await getAuth().
-    signInWithRedirect(provider);
-}
+
 export async function iniciaSesión() {
   /** Tipo de autenticación de
    * usuarios. En este caso es con
