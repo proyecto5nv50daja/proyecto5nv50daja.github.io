@@ -17,7 +17,7 @@ export async function iniciaSesión() {
   const provider =
     // @ts-ignore
     new firebase.auth.
-      GoogleAuthProvider();
+      FacebookAuthProvider();
   /* Configura el proveedor de
    * Google para que permita
    * seleccionar de una lista. */
