@@ -13,7 +13,7 @@ export async function iniciaSesión() {
   /** Tipo de autenticación de
    * usuarios. En este caso es con
    * Google.
-   * @type {import("../lib/tiposFire.js").FacebookAuthProvider} */
+   * @type {import("../lib/tiposFiregoogle.js").FacebookAuthProvider} */
   const provider =
     // @ts-ignore
     new firebase.auth.
