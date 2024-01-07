@@ -22,7 +22,7 @@ getAuth().onAuthStateChanged(
   protege, muestraError);
 
 /** @param {import(
-    "../lib/tiposFire.js").User}
+    "../lib/tiposFiregoogle.js").User}
     usuario */
 async function protege(usuario) {
   if (tieneRol(usuario,
@@ -38,21 +38,21 @@ async function guarda(evt) {
     evt.preventDefault();
     const formData =
       new FormData(forma);
-    const matricula = getString(
-        formData, "matricula").trim();  
+    const folio = getString(
+        formData, "folio").trim();  
     const nombre = getString(formData, "nombre").trim();
-    const telefono = getString(formData, "telefono").trim();
-    const grupo = getString(formData, "grupo").trim();
+    const precio = getString(formData, "precio").trim();
+    const categoria = getString(formData, "categoria").trim();
     const fecha = getString(formData, "fecha").trim();
     /**
      * @type {
         import("./tipos.js").
                 Alumno} */
     const modelo = {
-      matricula,
+      folio,
       nombre,
-      telefono,
-      grupo,
+      precio,
+      categoria,
       fecha 
     };
     await daoAlumno.
