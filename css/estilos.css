@@ -60,3 +60,7 @@ p label>* {
   box-sizing: border-box;
   width: 100%;
 }
+button {
+  font-size: 1rem;
+   background-color: blue:
+}
