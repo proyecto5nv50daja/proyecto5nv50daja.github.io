@@ -90,11 +90,21 @@
   <script type="module"
     src="js/CtrlSesion.js">
     </script>
-</body>
-	<script type="text/javascript">
+	<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
+
+
+  <script type="text/javascript">
 
   var firebaseConfig = {
-	 apiKey: "AIzaSyDqR658Q8_Ab8cfCgYP5RRwvNR0ne7z7Vs",
+	apiKey: "AIzaSyDqR658Q8_Ab8cfCgYP5RRwvNR0ne7z7Vs",
   authDomain: "proyecto5nv50daja-2f527.firebaseapp.com",
   projectId: "proyecto5nv50daja-2f527",
   storageBucket: "proyecto5nv50daja-2f527.appspot.com",
@@ -103,7 +113,7 @@
   measurementId: "G-W6NF9R2YLJ"
 	};
 
-	//Cargamos nucleo de firebase
+	// Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 
   </script>
@@ -117,7 +127,7 @@
   		user_image 		= document.getElementById("user_image"),
   		user_name_h1 	= document.getElementById("user_name");
 
-  	//iniciar con Facebook
+  	//iniciar con Google
   	var loginFacebook = function(){
 
   	   //proveedor de inicio - Facebook
@@ -125,21 +135,21 @@
 
 
   		firebase.auth().signInWithPopup(provider).then(function(result) {
-  		  // Token de acceso a google
+  		  // This gives you a Google Access Token. You can use it to access the Google API.
   		  var token = result.credential.accessToken;
-  		  // Informacion de usuario loggeado
+  		  // The signed-in user info.
   		  var user = result.user;
 
   		  console.log(user.displayName);
-		  ///Una vez registrado, podemos proceder a mostrar los datos obtenidos
   		  updateUser(user);
+  		  // ...
   		}).catch(function(error) {
-  		  // catch de errores
+  		  // Handle Errors here.
   		  var errorCode = error.code;
   		  var errorMessage = error.message;
-  		  // Error de email
+  		  // The email of the user's account used.
   		  var email = error.email;
-  		  // Error de credencial
+  		  // The firebase.auth.AuthCredential type that was used.
   		  var credential = error.credential;
   		  // ...
 
@@ -159,15 +169,16 @@
   	var logout = function(){
   		firebase.auth().signOut().then(function() {
 		  	user_name_h1.innerHTML = "Acceso";
-		  	user_image.src = "None.jpg";
+		  	user_image.src = "assets/images/JimeCoding.jpg";
   			login_btn.style.display = "inline-block";
   			logout_btn.style.display = "none";
 
 		}).catch(function(error) {
-		  // Sucedio un error
+		  // An error happened.
 		});
 
   	}
 
   </script>
+</body>	
 </html>
