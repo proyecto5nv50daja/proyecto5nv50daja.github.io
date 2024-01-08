@@ -3,8 +3,8 @@ class MiFooter
   connectedCallback() {
     this.innerHTML = /* html */
       `<p>
-        &copy; 2023
-        Ricardo Armando Machorro Reyes.
+        &copy; 2024
+        De Jesús Aguilar José Antonio.
       </p>`;
   }
 }
