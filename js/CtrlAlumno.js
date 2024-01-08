@@ -52,8 +52,8 @@ async function busca() {
       const data = doc.data();
       forma.folio.value = data.folio;
       forma.nombre.value = data.nombre || "";
-      forma.precio.value = data.precio || "";
-      forma.categoria.value = data.categoria || "";
+      forma.deporte.value = data.deporte || "";
+      forma.trofeos.value = data.trofeos || "";
       forma.fecha.value = data.fecha || "";
       forma.addEventListener(
         "submit", guarda);
@@ -79,8 +79,8 @@ async function guarda(evt) {
     const folio = getString(
         formData, "folio").trim();  
     const nombre = getString(formData, "nombre").trim();
-    const precio = getString(formData, "precio").trim();
-    const categoria = getString(formData, "categoria").trim();
+    const deporte = getString(formData, "deporte").trim();
+    const trofeos = getString(formData, "trofeos").trim();
     const fecha = getString(formData, "fecha").trim();
     /**
      * @type {
@@ -89,8 +89,8 @@ async function guarda(evt) {
     const modelo = {
       folio, 
       nombre,
-      precio,
-      categoria,
+      deporte,
+      trofeos,
       fecha
     };
     await daoAlumno.
