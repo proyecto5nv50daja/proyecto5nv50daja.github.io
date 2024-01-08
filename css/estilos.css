@@ -63,7 +63,7 @@ output {
 
 /* Botón de terminar sesión */
 button[name="terminarSesión"] {
-  background-color: #8e3ce7;
+  background-color: #e74c3c;
   color: #fff;
   padding: 10px 15px;
   border: none;
