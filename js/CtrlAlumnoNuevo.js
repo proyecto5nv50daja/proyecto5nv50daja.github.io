@@ -42,7 +42,7 @@ async function guarda(evt) {
         formData, "folio").trim();  
     const nombre = getString(formData, "nombre").trim();
     const deporte = getString(formData, "deporte").trim();
-    const trofeo = getString(formData, "trofeos").trim();
+    const trofeos = getString(formData, "trofeos").trim();
     const fecha = getString(formData, "fecha").trim();
     /**
      * @type {
