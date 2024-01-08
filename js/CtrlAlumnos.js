@@ -68,7 +68,7 @@ function htmlFila(doc) {
   const data = doc.data();
   const folio = cod(data.folio);
   const nombre = cod(data.nombre);
-  const precio = cod(data.precio);
+  const deporte = cod(data.deporte);
   var fsf= cod(data.fecha);
   var fecha = new Date(fsf);
   var espacio="[    -    ]";
@@ -81,7 +81,7 @@ function htmlFila(doc) {
       <a class="fila" href=
   "alumno.html?${parámetros}">
         <strong class="primario">
-          ${folio}     ${nombre}   Precio :$${precio}    ${dformat}
+          ${folio}     ${nombre}   Practica el deporte :${deporte}    ${dformat}
         </strong>
       </a>
      
