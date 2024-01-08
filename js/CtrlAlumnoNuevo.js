@@ -41,8 +41,8 @@ async function guarda(evt) {
     const folio = getString(
         formData, "folio").trim();  
     const nombre = getString(formData, "nombre").trim();
-    const precio = getString(formData, "precio").trim();
-    const categoria = getString(formData, "categoria").trim();
+    const deporte = getString(formData, "deporte").trim();
+    const trofeo = getString(formData, "trofeos").trim();
     const fecha = getString(formData, "fecha").trim();
     /**
      * @type {
@@ -51,8 +51,8 @@ async function guarda(evt) {
     const modelo = {
       folio,
       nombre,
-      precio,
-      categoria,
+      deporte,
+      trofeos,
       fecha 
     };
     await daoAlumno.
