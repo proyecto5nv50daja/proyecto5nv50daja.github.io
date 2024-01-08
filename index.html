@@ -1,101 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-    content="width=device-width,
-       initial-scale=1.0">
-  <title>Sesión</title>
-  <!--
-    Carga el núcleo de Firebase
-    JS SDK
-  -->
-  <script
-    src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js">
-    </script>
-  <!--
-    Agrega el manejo de
-    autenticación.
-  -->
-  <script
-    src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js">
-    </script>
-  <!--
-    Agrega el manejo de bases de
-    datos.
-  -->
-  <script
-    src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js">
-    </script>
-  <!--
-    Configura la app usando la
-    información del sitio de
-    Firebase.
-  -->
-  <script src="js/init.js">
-  </script>
-  <script type="module"
-    src="cmp/mi-nav.js">
-    </script>
-  <script type="module"
-    src="cmp/mi-footer.js">
-    </script>
-  <script type="module"
-    src="cmp/mi-progreso.js">
-    </script>
-  <link rel="stylesheet"
-    href="css/estilos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina De Bienvenida</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            flex-direction: column;
+            top: 0;
+            z-index: 1000;
+        }
+
+        main {
+            text-align: center;
+            margin: 20px;
+        }
+
+        section {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .boton {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        #azul {
+            background-color: #3498db;
+        }
+
+        #gris {
+            background-color: #95a5a6;
+        }
+
+        .boton:hover {
+            background-color: #2c3e50;
+        }
+        footer{
+            padding: 10px;
+            text-align: center;
+        }
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background-color: #95a5a6; /* Color de fondo de Google */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button img {
+            width: 40px; /* Ajusta el tamaño de los logotipos según sea necesario */
+            margin-right: 10px; /* Ajusta el espacio entre el logo y el texto del botón */
+        }
+    </style>
 </head>
 <body>
-<form name="forma">
-    <mi-nav></mi-nav>
     <header>
-      <h1>Sesión</h1>
-      <div class="herramientas">
-        <button
-          type="button"
-          name="terminarSesión">
-          Terminar Sesión
-        </button>
-      </div>
+        <h1>Bienvenid@ Al Sistema!</h1>
     </header>
-    <figure>
-      <img id="avatar" src=""
-        alt="Avatar">
-    </figure>
-    <p>
-      <label>
-        Email
-        <output name="email">
-          <mi-progreso>
-          </mi-progreso>
-        </output>
-      </label>
-    </p>
-    <p>
-      <label>
-        Nombre
-        <output name="nombre">
-          <mi-progreso>
-          </mi-progreso>
-        </output>
-      </label>
-    </p>
-	
-	
-	
-    <mi-footer></mi-footer>
-  </form>
-  <script type="module"
-    src="js/CtrlSesion.js">
-    </script>
-	<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <br><br><br><br>
+        <section>
+            <p>Para poder acceder debes de autenticarte primero</p>
+            <p>Selecciona a continuacion como quieres autenticarte.</p>
+            <br>
+            <button onclick="loginFacebook()" id="login_btn" >
+                <img src="img/facebook-logo.png" alt="Facebook Logo">
+                Iniciar sesión con Facebook
+              </button>
+              <br><br>
+              <a href="main.html">
+              <button class="facebook" href="">
+                <img src="img/google-logo.png" alt="Google Logo">
+                Iniciar sesión con Google
+              </button>
+            </a>
+        </section>
+        <!-- Nucleo de firebase INDISPENSABLE- -->
   <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
 
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-analytics.js"></script>
-
-  <!-- Add Firebase products that you want to use -->
+  <!-- Añadimos los productos de auth y base de datos  -->
   <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-firestore.js"></script>
 
@@ -112,7 +124,7 @@
   measurementId: "G-W6NF9R2YLJ"
 	};
 
-	// Initialize Firebase
+	// Inicializamos firebase
     firebase.initializeApp(firebaseConfig);
 
   </script>
@@ -126,7 +138,7 @@
   		user_image 		= document.getElementById("user_image"),
   		user_name_h1 	= document.getElementById("user_name");
 
-  	//iniciar con Google
+  	//iniciar con Facebook
   	var loginFacebook = function(){
 
   	   //proveedor de inicio - Facebook
@@ -134,21 +146,22 @@
 
 
   		firebase.auth().signInWithPopup(provider).then(function(result) {
-  		  // This gives you a Google Access Token. You can use it to access the Google API.
+  		  // Token de google usado para el acceso simulaneo
   		  var token = result.credential.accessToken;
-  		  // The signed-in user info.
+  		  // Una vez iniciada la sesion pararemos a tomar los datos del usuario
   		  var user = result.user;
-
+			//Si funciona, imprimimos el nombre del usuario
   		  console.log(user.displayName);
-  		  updateUser(user);
+			//redirigimos a nuestra pagina MAIN
+  		  redireccionamiento(user);
   		  // ...
   		}).catch(function(error) {
-  		  // Handle Errors here.
+  		  // Cachamos errores
   		  var errorCode = error.code;
   		  var errorMessage = error.message;
-  		  // The email of the user's account used.
+  		  // Error de email
   		  var email = error.email;
-  		  // The firebase.auth.AuthCredential type that was used.
+  		  // Error de credencial
   		  var credential = error.credential;
   		  // ...
 
@@ -156,28 +169,14 @@
   		});
   	}
 
-  	//agregar datos del usuario
-  	var updateUser = function(user){
-  		user_name_h1.innerHTML = "Hola, " + user.displayName;
-  		user_image.src = user.photoURL;
-
-  		login_btn.style.display = "none";
-  		logout_btn.style.display = "inline-block";
-  	}
-
-  	var logout = function(){
-  		firebase.auth().signOut().then(function() {
-		  	user_name_h1.innerHTML = "Acceso";
-		  	user_image.src = "assets/images/JimeCoding.jpg";
-  			login_btn.style.display = "inline-block";
-  			logout_btn.style.display = "none";
-
-		}).catch(function(error) {
-		  // An error happened.
-		});
-
+  	//Redireccionamos
+  	var redireccionamiento = function(user){
+  		location.href="main.html";
   	}
 
   </script>
-</body>	
+</body>
+<footer style="background-color: azure; color: black; width: 100%;">
+    Alvaro Coyotecatl 2022601770    
+</footer>
 </html>
