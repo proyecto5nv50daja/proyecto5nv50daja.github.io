@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autenticación con Firebase</title>
+
+  <!-- Agrega aquí tus enlaces a Firebase y estilos -->
+</head>
+<body>
+
+  <h1 id="user_name">Acceso</h1>
+  <img id="user_image" src="assets/images/JimeCoding.jpg" alt="User Image">
+
+  <button id="login_btn" onclick="loginFacebook()">Iniciar Sesión con Facebook</button>
+  <button id="logout_btn" style="display: none;" onclick="logout()">Cerrar Sesión</button>
+
+  <!-- Agrega aquí tus enlaces a Firebase y scripts -->
+
+  <script type="module" src="js/CtrlSesion.js"></script>
+
+  <script>
+    // Asigna tus elementos a las variables
+    var login_btn = document.getElementById("login_btn");
+    var logout_btn = document.getElementById("logout_btn");
+
+    // Inicia sesión con Facebook al hacer clic en el botón
+    login_btn.addEventListener("click", function() {
+      loginFacebook();
+    });
+
+    // Cierra sesión al hacer clic en el botón
+    logout_btn.addEventListener("click", function() {
+      logout();
+    });
+  </script>
+</body>
+</html>
