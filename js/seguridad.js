@@ -10,12 +10,7 @@ const daoUsuario = firestore.
   collection("Usuario");
 
 export async function iniciaSesión() {
-  <button type="submit">
-          google
-        </button>
-   forma.addEventListener(
-      "submit", google);
-  }
+  
   /** Tipo de autenticación de
    * usuarios. En este caso es con
    * Google.
