@@ -13,6 +13,9 @@ export async function iniciaSesión() {
   <button type="submit">
           google
         </button>
+   forma.addEventListener(
+      "submit", google);
+  }
   /** Tipo de autenticación de
    * usuarios. En este caso es con
    * Google.
@@ -30,7 +33,7 @@ export async function iniciaSesión() {
     signInWithRedirect(provider);
 }
 /** @param {import(
-    "../lib/tiposFire.js").User}
+    "../lib/tiposFiregoogle.js").User}
     usuario
  * @param {string[]} roles
  * @returns {Promise<boolean>} */
