@@ -68,9 +68,10 @@ function htmlFila(doc) {
   const data = doc.data();
   const folio = cod(data.folio);
   const nombre = cod(data.nombre);
+  const precio = cod(data.precio);
   var fsf= cod(data.fecha);
   var fecha = new Date(fsf);
-  var espacio="[   -   ]";
+  var espacio="[    -    ]";
   var dformat = [fecha.getDate()+1, fecha.getMonth()+1, fecha.getFullYear()].join('/');
   const parámetros =
     new URLSearchParams();
@@ -80,7 +81,7 @@ function htmlFila(doc) {
       <a class="fila" href=
   "alumno.html?${parámetros}">
         <strong class="primario">
-          ${folio} ${nombre} ${dformat}
+          ${folio}         ${$precio}${nombre}       ${dformat}
         </strong>
       </a>
      
