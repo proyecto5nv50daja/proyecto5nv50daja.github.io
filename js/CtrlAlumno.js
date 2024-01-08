@@ -27,7 +27,7 @@ getAuth().onAuthStateChanged(
   protege, muestraError);
 
 /** @param {import(
-    "../lib/tiposFire.js").User}
+    "../lib/tiposFiregoogle.js").User}
     usuario */
 async function protege(usuario) {
   if (tieneRol(usuario,
@@ -50,10 +50,10 @@ async function busca() {
           import("./tipos.js").
                   Alumno} */
       const data = doc.data();
-      forma.matricula.value = data.matricula;
+      forma.folio.value = data.folio;
       forma.nombre.value = data.nombre || "";
-      forma.telefono.value = data.telefono || "";
-      forma.grupo.value = data.grupo || "";
+      forma.precio.value = data.precio || "";
+      forma.categoria.value = data.categoria || "";
       forma.fecha.value = data.fecha || "";
       forma.addEventListener(
         "submit", guarda);
@@ -76,21 +76,21 @@ async function guarda(evt) {
     evt.preventDefault();
     const formData =
       new FormData(forma);
-    const matricula = getString(
-        formData, "matricula").trim();  
+    const folio = getString(
+        formData, "folio").trim();  
     const nombre = getString(formData, "nombre").trim();
-    const telefono = getString(formData, "telefono").trim();
-    const grupo = getString(formData, "grupo").trim();
+    const precio = getString(formData, "precio").trim();
+    const categoria = getString(formData, "categoria").trim();
     const fecha = getString(formData, "fecha").trim();
     /**
      * @type {
         import("./tipos.js").
                 Alumno} */
     const modelo = {
-      matricula, 
+      folio, 
       nombre,
-      telefono,
-      grupo,
+      precio,
+      categoria,
       fecha
     };
     await daoAlumno.
